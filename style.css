@@ -1,0 +1,236 @@
+body {
+    background-color: #F8F8F8; 
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+
+:root {
+    --color-primary-blue: #667EEA; /* Ungu kebiruan */
+    --color-secondary-purple: #8B5CF6; /* Ungu */
+    --color-accent-light-blue: #4299E1; /* Biru terang */
+    --color-text-dark: #1F2937; /* Dark gray for text */
+    --color-text-medium: #4B5563; /* Medium gray for text */
+    --color-white: #FFFFFF;
+}
+
+.text-primary-blue { color: var(--color-primary-blue); }
+.bg-primary-blue { background-color: var(--color-primary-blue); }
+.hover\:bg-primary-blue:hover { background-color: var(--color-primary-blue); }
+.border-primary-blue { border-color: var(--color-primary-blue); }
+
+.text-secondary-purple { color: var(--color-secondary-purple); }
+.bg-secondary-purple { background-color: var(--color-secondary-purple); }
+.hover\:bg-secondary-purple:hover { background-color: var(--color-secondary-purple); }
+
+.text-accent-light-blue { color: var(--color-accent-light-blue); }
+.bg-accent-light-blue { background-color: var(--color-accent-light-blue); }
+.hover\:bg-accent-light-blue:hover { background-color: var(--color-accent-light-blue); }
+
+
+/* EXISTING CSS FROM YOUR PREVIOUS style.css */
+
+.circle-bg {
+    background-color: var(--color-primary-blue); /* Changed to primary blue */
+    width: 600px;
+    height: 300px; /* Half of diameter, adjusted for better fit */
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    bottom: -10px;
+    left: 50%; /* Center the circle horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    opacity: 0.7; /* Soften the circle */
+    filter: blur(80px); /* Add blur for a softer effect */
+    position: absolute; /* Ensure it's positioned correctly */
+    z-index: 0; /* Ensure it stays behind the image */
+}
+
+
+.btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+    border: 0 solid;
+    box-sizing: border-box;
+}
+
+.btn-12 {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: button;
+    background-color: var(--color-primary-blue); /* Changed to primary blue */
+    background-image: none;
+    color: var(--color-white); /* Changed to white */
+    cursor: pointer;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 100%;
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 0;
+    -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.btn-12:disabled {
+    cursor: default;
+}
+
+.btn-12:-moz-focusring {
+    outline: auto;
+}
+
+.btn-12 svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.btn-12 [hidden] {
+    display: none;
+}
+
+.btn-12 {
+    border-radius: 99rem;
+    border-width: 2px;
+    overflow: hidden;
+    padding: 0.8rem 3rem;
+    position: relative;
+    border-color: var(--color-primary-blue); /* Ensure border matches button color */
+}
+
+.btn-12 span {
+    mix-blend-mode: difference;
+}
+
+.btn-12:after,
+.btn-12:before {
+    background: linear-gradient(
+        90deg,
+        var(--color-secondary-purple) 25%, /* Changed to secondary purple */
+        transparent 0,
+        transparent 50%,
+        var(--color-secondary-purple) 0, /* Changed to secondary purple */
+        var(--color-secondary-purple) 75%, /* Changed to secondary purple */
+        transparent 0
+    );
+    content: "";
+    inset: 0;
+    position: absolute;
+    color: var(--color-white); /* Changed to white */
+    transform: translateY(var(--progress, 100%));
+    transition: transform 0.2s ease;
+}
+
+.btn-12:after {
+    --progress: -100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 25%,
+        var(--color-secondary-purple) 0, /* Changed to secondary purple */
+        var(--color-secondary-purple) 50%, /* Changed to secondary purple */
+        transparent 0,
+        transparent 75%,
+        var(--color-secondary-purple) 0 /* Changed to secondary purple */
+    );
+    color: var(--color-white); /* Changed to white */
+    z-index: -1;
+}
+
+.btn-12:hover:after,
+.btn-12:hover:before {
+    --progress: 0;
+}
+
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.animate-blink {
+    animation: blink 1s infinite;
+    top: 0.3rem;
+}
+
+/* Custom styles for timeline line */
+.timeline-line {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #E2E8F0; /* slate-200 */
+    transform: translateX(-50%);
+}
+
+/* Adjust line for mobile */
+@media (max-width: 767px) {
+    .timeline-line {
+        left: 1rem; /* Adjust as needed for mobile alignment */
+        transform: none;
+        display: block; /* Ensure line is visible on mobile if desired, though the HTML already hides it. Re-adding for clarity if you wish it to be visible. */
+    }
+    /* Removed the border-left and padding-left from timeline-item on mobile */
+    /* .timeline-item {
+        border-left: 4px solid #e2e8f0;
+        padding-left: 1.5rem;
+        margin-left: 1rem;
+    } */
+    /* .timeline-item:before {
+        left: -0.5rem !important;
+    } */
+    .timeline-item-right, .timeline-item-left {
+        text-align: left !important; /* Ensure text alignment is left for mobile */
+    }
+
+    /* Adjust the dot visibility on mobile for timeline */
+    .timeline-item-left + .z-20, .timeline-item-right + .z-20 {
+        display: none !important; /* Hide the dots on mobile as the line is left-aligned */
+    }
+}
+
+/* Nav item hover effect */
+.nav-item-hover:hover {
+    color: var(--color-secondary-purple); /* Ungu */
+}
+
+/* Button styling - these should ideally be in Tailwind config or inline for simplicity */
+/* Re-added from previous response to ensure styles are applied if not using JIT config */
+.btn-primary {
+    background-color: var(--color-primary-blue);
+    color: var(--color-white);
+    border-radius: 9999px; /* Full rounded */
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: 2px solid var(--color-primary-blue); /* Added for consistency */
+    position: relative; /* For group hover effects */
+    overflow: hidden; /* For group hover effects */
+}
+.btn-primary:hover {
+    background-color: var(--color-secondary-purple); /* Darker blue on hover */
+    border-color: var(--color-secondary-purple);
+}
+
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-primary-blue);
+    border: 2px solid var(--color-primary-blue);
+    border-radius: 9999px; /* Full rounded */
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative; /* For group hover effects */
+    overflow: hidden; /* For group hover effects */
+}
+.btn-secondary:hover {
+    background-color: var(--color-primary-blue);
+    color: var(--color-white);
+}
