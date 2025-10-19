@@ -194,6 +194,9 @@ body {
     .timeline-item-left + .z-20, .timeline-item-right + .z-20 {
         display: none !important; /* Hide the dots on mobile as the line is left-aligned */
     }
+    
+
+
 }
 
 /* Nav item hover effect */
